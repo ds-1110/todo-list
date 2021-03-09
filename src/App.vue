@@ -1,5 +1,7 @@
 <template>
-  <h1 class="text-3xl font-heavy bg-indigo-400">Todo list</h1>
+  <h1 class="text-3xl font-heavy my-5 font-display text-center">
+    Getting things done!
+  </h1>
   <router-view />
 </template>
 
