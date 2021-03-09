@@ -1,14 +1,21 @@
 <template>
-  <div class="mx-8 font-display">
-    <span class="mb-2 text-red-600 text-sm" v-if="!checkTodo"
-      >You have to enter a todo!</span
+  <div class="mx-8 font-display relative">
+    <transition
+      name="custom-classes-transition"
+      enter-active-class="animate__animated animate__fadeIn"
+      leave-active-class="animate__animated animate__bounceOutRight"
     >
+      <span class="text-red-600 text-sm absolute -top-6" v-if="!checkTodo"
+        >You have to enter a todo!</span
+      >
+    </transition>
     <input
       type="text"
       name="add-todo"
       id="add-todo"
       class="w-full text-base py-2 px-4 border-2 border-gray-300 rounded"
       v-model="todo.todoName"
+      @keyup.enter="addTodo"
       :class="{ 'border-red-600': !checkTodo }"
     />
     <div class="my-2 flex items-center">
@@ -38,6 +45,7 @@ export default {
         todoName: "",
         important: false,
         done: false,
+        test: true,
       },
       checkTodo: true,
     };
